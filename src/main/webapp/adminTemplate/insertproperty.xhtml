@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f = "http://java.sun.com/jsf/core"   
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+            .container {
+                max-width: 600px;
+                margin: auto;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+            input[type="text"],
+            textarea,
+            select {
+                width: 100%;
+                padding: 8px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                margin-bottom: 10px;
+            }
+
+            select {
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                padding-right: 25px;
+                background: url('path/to/your-arrow-icon.png') no-repeat right center;
+            }
+
+            /* Add more styles as needed */
+
+            /* Responsive styles */
+            @media (max-width: 768px) {
+                .container {
+                    max-width: 100%;
+                }
+            }
+        </style>
+    </h:head>
+    <h:body>
+<!--        <ui:composition template="/trytemplate.xhtml">
+            <ui:define name="content">-->
+                <h:form  enctype="multipart/form-data">
+                    <div class="container">
+                        <!-- Title -->
+                        <div class="form-group">
+                            <label for="title">Title:</label>
+                            <h:inputText id="title" value="#{insertPropertyBean.title}" class="form-control" required="true"/>
+                            
+                        </div>
+
+                        <!-- Type -->
+                        <div class="form-group">
+                            <label for="type">Type:</label>
+                            <h:inputText id="type" value="#{insertPropertyBean.type}" class="form-control" required="true"/>
+                        </div>
+                        <!--            <div class="form-group">
+                                        <label for="type">id</label>
+                                        <h:inputText id="id" value="#{insertPropertyBean.propertyid}" class="form-control" required="true"/>
+                                    </div>-->
+
+                        <!-- Description -->
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <h:inputTextarea id="description" value="#{insertPropertyBean.description}" class="form-control" required="true"/>
+                        </div>
+
+
+                        <h:selectOneMenu value="#{insertPropertyBean.selectedState}">
+                            <f:selectItems value="#{insertPropertyBean.allstatex()}"  var="state" itemLabel="#{state.stateName}" itemValue="#{state.stateName}" />
+                        </h:selectOneMenu>
+
+                        <h:selectOneMenu value="#{insertPropertyBean.selectedCity}">
+                            <f:selectItems value="#{insertPropertyBean.allcitybystate()}"  var="city"  itemLabel="#{city.cityName}" itemValue="#{city.cityName}" />
+                        </h:selectOneMenu>
+
+
+                        <!-- Full Address -->
+                        <div class="form-group">
+                            <label for="fullAddress">Full Address:</label>
+                            <h:inputText id="fullAddress" value="#{insertPropertyBean.fulladdress}" class="form-control" required="true"/>
+                        </div>
+
+                        <!-- Image 1 -->
+                        <div class="form-group">
+                            <h:inputFile value="#{insertPropertyBean.file1}" />
+                            <h:commandButton value="Upload" action="#{insertPropertyBean.uploadFile(insertPropertyBean.file1)}" />
+                        </div>
+
+                        <!-- Image 2 -->
+                        <div class="form-group">
+                            <h:inputFile value="#{insertPropertyBean.file2}" />
+                            <h:commandButton value="Upload" action="#{insertPropertyBean.uploadFile(insertPropertyBean.file2)}" />
+                        </div>
+
+                        <!-- Image 3 -->
+                        <div class="form-group">
+                            <h:inputFile value="#{insertPropertyBean.file3}" />
+                            <h:commandButton value="Upload" action="#{insertPropertyBean.uploadFile(insertPropertyBean.file3)}" />
+                        </div>
+
+                        <!-- Image 4 -->
+                        <div class="form-group">
+                            <h:inputFile value="#{insertPropertyBean.file4}" />
+                            <h:commandButton value="Upload" action="#{insertPropertyBean.uploadFile(insertPropertyBean.file4)}" />
+                        </div>
+
+                        <!-- Listing Date -->
+                        <div class="form-group">
+                            <label for="listingDate">Listing Date:</label>
+                            <h:inputText id="listingDate" value="#{insertPropertyBean.listingdate}" class="form-control" required="true"/>
+                        </div>
+
+                        <!-- Contact Number -->
+                        <div class="form-group">
+                            <label for="contactNo">Contact Number:</label>
+                            <h:inputText id="contactNo" value="#{insertPropertyBean.contactno}" class="form-control" required="true"/>
+                        </div>
+
+                        <!-- Email ID -->
+                        <div class="form-group">
+                            <label for="emailId">Email ID:</label>
+                            <h:inputText id="emailId" value="#{insertPropertyBean.emailid}" class="form-control" required="true"/>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="form-group">
+                            <label for="price">Price:</label>
+                            <h:inputText id="price" value="#{insertPropertyBean.price}" class="form-control" required="true"/>
+                        </div>
+
+
+                        <h:selectOneMenu value="#{insertPropertyBean.selectedRoles}">
+                            <f:selectItems value="#{insertPropertyBean.getallroles()}"  var="roles"  itemLabel="#{roles.role}" itemValue="#{roles.id}" />
+                        </h:selectOneMenu>
+
+
+                        <h:commandButton value="Submit" action="#{insertPropertyBean.insertPropertes()}" />
+                    </div>   
+                </h:form>
+<!--            </ui:define>
+        </ui:composition>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    </h:body>
+</html>

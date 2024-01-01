@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="trytemplate.xhtml">
+            <ui:define name="content">
+                <h:form  class="form-horizontal" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="page-title" style="text-align: center;"><b>Post a House</b></h2>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Basic Info</div>
+                                    
+                                    <div class="panel-body" style="margin-top: 15px;">
+                                        
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Property Title<span style="color:red">*</span></label>
+                                                <div class="col-sm-4">
+                                                    <h:inputText id="propertytitle"  value="#{insertPropertyBean.title}"  styleClass="form-control" required="true" requiredMessage="title is required" />
+                                                     <h:message for="propertytitle" style="color: red"></h:message>
+                                                </div>
+                                               
+                                                <label class="col-sm-2 control-label">Select Brand<span style="color:red">*</span></label>
+                                                <div class="col-sm-4">
+                                                    <h:selectOneMenu value="#{insertPropertyBean.selectedRoles}" styleClass="selectpicker">
+                                                        <f:selectItems value="#{insertPropertyBean.getallroles()}"  var="role" itemLabel="#{role.role}" itemValue="#{role.id}"/>
+                                                    </h:selectOneMenu>
+                                                </div>
+                                                <label class="col-sm-2 control-label ">Property fullAddress<span style="color:red">*</span></label>
+                                                <div class="col-sm-4">
+                                                    <h:inputText id="propertyfulladdress" value="#{insertPropertyBean.fulladdress}" styleClass="form-control" required="true"  requiredMessage="full address is required" />
+                                                     <h:message for="propertyfulladdress" style="color: red"></h:message>
+                                                </div>
+
+                                                <label class="col-sm-2 control-label">Property Type<span style="color:red">*</span></label>
+                                                <div class="col-sm-4">
+                                                    <h:inputText id="property" value="#{insertPropertyBean.type}" styleClass="form-control" required="true" requiredMessage="type is required"/>
+                                                     <h:message for="property" style="color: red"></h:message>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Property Description<span style="color:red">*</span></label>
+                                                <div class="col-sm-10">
+                                                    <h:inputTextarea id="vehicalorcview" value="#{insertPropertyBean.description}" rows="3" styleClass="form-control" required="true" requiredMessage="Description is required"/>
+                                                      <h:message for="vehicalorcview" style="color: red"></h:message>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Price<span style="color:red">*</span></label>
+                                                <div class="col-sm-4">
+                                                    <h:inputText id="priceperday" value="#{insertPropertyBean.price}" styleClass="form-control" required="true" requiredMessage="Price is required" />
+                                                      <h:message for="priceperday" style="color: red"></h:message>
+                                                </div>
+                                                <label class="col-sm-2 control-label">Select State<span style="color:red">*</span></label>
+                                                <div class="col-sm-4">
+                                                    <h:selectOneMenu value="#{insertPropertyBean.selectedState}" styleClass="selectpicker">
+                                                        <f:selectItems value="#{insertPropertyBean.allstatex()}"  var="state" itemLabel="#{state.stateName}" itemValue="#{state.stateName}" />
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">Listing Date<span style="color:red">*</span></label>
+                                                <div class="col-sm-4">
+                                                    <h:inputText id="listingdate" value="#{insertPropertyBean.listingdate}" styleClass="form-control" required="true" requiredMessage="Date is required"/>
+                                                      <h:message for="listingdate" style="color: red"></h:message>
+                                                </div>
+                                                
+                                                <label class="col-sm-2 control-label">Select City<span style="color:red">*</span></label>
+                                                <div class="col-sm-4">
+                                                    <h:selectOneMenu value="#{insertPropertyBean.selectedCity}" styleClass="selectpicker">
+                                                        <f:selectItems value="#{insertPropertyBean.allcitybystate()}"  var="city"  itemLabel="#{city.cityName}" itemValue="#{city.cityName}"  />
+                                                    </h:selectOneMenu>
+                                                </div>
+                                                <label class="col-sm-2 control-label">Emailid<span style="color:red">*</span></label>
+                                                <div class="col-sm-4">
+                                                    <h:inputText id="emailid" value="#{insertPropertyBean.emailid}" styleClass="form-control" required="true" requiredMessage="Emailid is required"/>
+                                                     <h:message for="emailid" style="color: red"></h:message>
+                                                </div>
+                                                <label class="col-sm-2 control-label">contactno<span style="color:red">*</span></label>
+                                                <div class="col-sm-4">
+                                                    <h:inputText id="contactno" value="#{insertPropertyBean.contactno}" styleClass="form-control" required="true" requiredMessage="contact no is required" />
+                                                     <h:message for="contactno" style="color: red"></h:message>
+                                                </div>
+                                            </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Upload Images</div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <div class="col-sm-4">
+                                                Image 1
+                                                <span style="color:red">*</span><h:inputFile value="#{insertPropertyBean.file1}" required="true"/>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                Image 2
+                                                <span style="color:red">*</span><h:inputFile value="#{insertPropertyBean.file2}" required="true" />
+                                            </div>
+                                            <div class="col-sm-4">
+                                                Image 3
+                                                <span style="color:red">*</span> <h:inputFile value="#{insertPropertyBean.file3}" required="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-4">
+                                                <br></br>
+                                                Image 4<span style="color:red">*</span> <h:inputFile value="#{insertPropertyBean.file4}" required="true" />
+                                            </div>
+      
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" style="text-align:center; margin-bottom: 10px;">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <button class="btn btn-default" type="reset">Cancel</button>
+                            <h:commandButton class="btn btn-primary" value="Submit" action="#{insertPropertyBean.insertPropertes()}"></h:commandButton>
+                        </div>
+                    </div>
+                </div>
+</h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

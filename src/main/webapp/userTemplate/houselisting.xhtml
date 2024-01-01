@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="userfacelet.xhtml">
+            <ui:define name="content">
+                <section class="page-header listing_page">
+                    <div class="container">
+                        <div class="page-header_wrap">
+                            <div class="page-heading">
+                                <h1>House Listing </h1>
+                            </div>
+                            <ul class="coustom-breadcrumb">
+                                <li><a href="home.jsf">Home</a></li>
+                                <li>House Listing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Dark Overlay-->
+                    <div class="dark-overlay"></div>
+                </section>
+                <section class="listing-page">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9 col-md-push-3">
+                                <div class="result-sorting-wrapper">
+                                    <div class="sorting-count">
+<!--                                        <p><span>#{registrationBean.fetchCountProperty()} Listings</span></p>-->
+                                    </div>
+                                </div>
+
+                                <ui:repeat value="#{insertPropertyBean.getallpropertyByStatus()}" var="vehicle">
+                                    <div class="product-listing-m gray-bg">
+                                        <div class="product-listing-img">
+                                             <h:graphicImage library="images" name="#{vehicle.image1}" class="img-responsive" alt="image" />
+                                        </div>
+                                        <div class="product-listing-content">
+                                            <h5>
+                                                <a href="vehical.xhtml?vhid=#{vehicle.title}">
+                                                    #{vehicle.type} , #{vehicle.emailid}
+                                                </a>
+                                            </h5>
+                                            <p class="list-price">₹#{vehicle.price}</p>
+                                            <ul>
+                                                <li><i class="fa fa-user" aria-hidden="true"></i>#{vehicle.stateName} StateName</li>
+                                                <li><i class="fa fa-calendar" aria-hidden="true"></i>#{vehicle.cityName} CityName</li>
+                                                <li><i class="fa fa-car" aria-hidden="true"></i>#{vehicle.description}</li>
+                                            </ul>
+                                            <a href="housedetails.jsf?p_id=#{vehicle.PId}" class="btn">
+                                                View Details
+                                                <span class="angle_arrow">
+                                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </ui:repeat>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

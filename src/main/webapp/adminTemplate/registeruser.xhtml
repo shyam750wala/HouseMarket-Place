@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="trytemplate.xhtml">
+            <ui:define name="content">
+               <div class="row">
+    <div class="col-md-12">
+        <h2 class="page-title">Registered Users</h2>
+
+        <!-- Zero Configuration Table -->
+        <div class="panel panel-default">
+            <div class="panel-heading">Reg Users</div>
+            <div class="panel-body">
+                <!-- Check for error or success messages -->
+                
+<!--                    <div class="errorWrap"><strong>ERROR</strong> </div>
+               
+                    <div class="succWrap"><strong>SUCCESS</strong> </div>-->
+               
+
+                <!-- Table for displaying registered users -->
+                <h:dataTable  value="#{userCdiBean.getallUsers()}" var="result" id="zctb" class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Emailid</th>
+                            <th>fname</th>
+                            <th>lname</th>
+                            <th>Contactno</th>
+                            <th>password</th>
+                          
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                             <h:column>
+            <f:facet name="header">Emailid</f:facet>
+            #{result.emailId}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Full Name</f:facet>
+            #{result.fname}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Email</f:facet>
+            #{result.lname}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Contact No</f:facet>
+            #{result.contactNo}
+        </h:column>
+                             <h:column>
+            <f:facet name="header">Password</f:facet>
+            #{result.password}
+        </h:column>
+        <!-- Add more columns as needed -->
+    
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                           <th>id</th>
+                            <th>Emailid</th>
+                            <th>fname</th>
+                            <th>lname</th>
+                            <th>Contactno</th>
+                            <th>password</th>
+                        </tr>
+                    </tfoot>
+                    
+                </h:dataTable>
+                        </div>
+        </div>
+    </div>
+</div>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

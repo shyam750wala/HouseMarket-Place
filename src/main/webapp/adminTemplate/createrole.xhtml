@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="trytemplate.xhtml">
+            <ui:define name="content">
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <h2 class="page-title">Create Brand</h2>
+
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Create Brand</div>
+                                    <div class="panel-body">
+                                        <h:form  class="form-horizontal" >
+
+
+                                            <div class="errorWrap"><strong></strong> </div><div class="succWrap"><strong></strong> </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-4 control-label">Role Name</label>
+                                                <div class="col-sm-8">
+                                                    <h:inputText id="type" value="#{rolemanagementbean.propertyrole}" class="form-control" required="true" requiredMessage="Role Name is Required"/>
+                                                      <h:message for="type" style="color: red"></h:message>
+                                                </div>
+                                            </div>
+                                            <div class="hr-dashed"></div>
+
+
+
+
+                                            <div class="form-group">
+                                                <div class="col-sm-8 col-sm-offset-4">
+
+                                                    <h:commandButton class="btn btn-primary" value="Submit" action="#{rolemanagementbean.insertrole()}"></h:commandButton>
+                                                </div>
+                                            </div>
+
+                                        </h:form>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

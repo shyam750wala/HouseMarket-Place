@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <ui:composition template="trytemplate.xhtml">
+            <ui:define name="content">
+                <h:form>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="page-title">Listed Property</h2>
+
+                            <!-- Zero Configuration Table -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Listed Property</div>
+                                <div class="panel-body">
+                                    <!-- Check for error or success messages -->
+
+                                    <!--                    <div class="errorWrap"><strong>ERROR</strong> </div>
+                                                   
+                                                        <div class="succWrap"><strong>SUCCESS</strong> </div>-->
+
+
+                                    <!-- Table for displaying registered users -->
+                                    <h:dataTable  value="#{insertPropertyBean.getallproperty()}" var="result" id="zctb" class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>id</th>
+                                                <th>Title</th>
+                                                <th>Type</th>
+                                                <th>Description</th>
+                                                <th>Statename</th>
+                                                <th>Cityname</th>
+                                                <th>Full Address</th>
+                                                <th>image1</th>
+                                                <!--                            <th>image2</th>
+                                                                            <th>image3</th>
+                                                                            <th>image4</th>-->
+                                                <th>listing date</th>
+                                                <th>Contaact no</th>
+                                                <th>Emailid</th>
+                                                <th>Price</th>
+<!--                                                <th>Role</th>-->
+                                                <th>Edit ! Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <h:column>
+                                                <f:facet name="header">id</f:facet>
+                                                    #{result.PId}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">Title</f:facet>
+                                                    #{result.title}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">type</f:facet>
+                                                    #{result.type}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">description</f:facet>
+                                                    #{result.description}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">statename</f:facet>
+                                                    #{result.stateName}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">cityname</f:facet>
+                                                    #{result.cityName}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">full address</f:facet>
+                                                    #{result.fulladdress}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">image1</f:facet>
+                                                    #{result.image1}
+                                            </h:column>
+                                            <!--                                         <h:column>
+                                                        <f:facet name="header">image2</f:facet>
+                                            #{result.image2}
+                                        </h:column>
+                                                                         <h:column>
+                                            <f:facet name="header">image3</f:facet>
+                                            #{result.image3}
+                                        </h:column>
+                                                                         <h:column>
+                                            <f:facet name="header">image4</f:facet>
+                                            #{result.image4}
+                                        </h:column>-->
+                                            <h:column>
+                                                <f:facet name="header">listingdate</f:facet>
+                                                    #{result.listingdate}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">contactno</f:facet>
+                                                    #{result.conatctno}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">emailid</f:facet>
+                                                    #{result.emailid}
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">price</f:facet>
+                                                    #{result.price}
+                                            </h:column>
+<!--                                            <h:column>
+                                                <f:facet name="header">role</f:facet>
+                                                    #{result.roleId}
+
+
+                                            </h:column>-->
+
+                                            <h:column>
+                                                 <f:facet name="header">Edit | delete</f:facet>
+                                                 <h:commandLink action="#{insertPropertyBean.searcproperty(result.PId)}" onclick="return confirm('Are you Sure You want to Hide Property');">Hide</h:commandLink> ||
+                                                <h:commandLink action="#{insertPropertyBean.deleteProperty(result.PId)}"  onclick="return confirm('Are you Sure');">Delete</h:commandLink>
+                                            </h:column>
+
+                                            <!-- Add more columns as needed -->
+
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>id</th>
+                                                <th>Title</th>
+                                                <th>Type</th>
+                                                <th>Description</th>
+                                                <th>Statename</th>
+                                                <th>Cityname</th>
+                                                <th>Full Address</th>
+                                                <th>image1</th>
+                                                <!--                            <th>image2</th>
+                                                                            <th>image3</th>
+                                                                            <th>image4</th>-->
+                                                <th>listing date</th>
+                                                <th>Contaact no</th>
+                                                <th>Emailid</th>
+                                                <th>Price</th>
+<!--                                                <th>Role</th>-->
+                                                <th>Edit ! Delete</th>
+                                            </tr>
+                                        </tfoot>
+
+                                    </h:dataTable>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>

@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="userfacelet.xhtml">
+            <ui:define name="content">
+                <section class="page-header profile_page">
+                    <div class="container">
+                        <div class="page-header_wrap">
+                            <div class="page-heading">
+                                <h1>My Booking</h1>
+                            </div>
+                            <ul class="coustom-breadcrumb">
+                                <li><a href="home.jsf">Home</a></li>
+                                <li>My Booking</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Dark Overlay-->
+                    <div class="dark-overlay"></div>
+                </section>
+
+                <h:form>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="emailId">Email ID:</label>
+                                    <h:inputText id="emailId" value= "#{sessionScope.User}" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>&nbsp;</label>
+<!--                                    <h:commandButton value="Retrieve Bookings" action="#{managebooking.retriveuser()}" class="btn btn-primary" />-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <h:dataTable value="#{managebooking.book}" var="booking" class="table">
+                            <h:column>
+                                <f:facet name="header">Booking ID</f:facet>
+                                    #{booking.BId}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Booking Date</f:facet>
+                                    #{booking.bookingDate}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Price</f:facet>
+                                    #{booking.price}
+                            </h:column>
+                             <h:column>
+                                <f:facet name="header">Price</f:facet>
+                                    #{booking.beadingPrice}
+                            </h:column>
+                            
+                            <!--                            <h:column>
+                                                            <f:facet name="header">Status</f:facet>
+                            #{booking.status}
+                        </h:column>-->
+                            <h:column>
+                                <f:facet name="header">Status</f:facet>
+                                   
+                                <h:panelGroup rendered="#{booking.status eq 1 }">
+                                    <h:outputText value=" Your Booking is Confirmed" style="color: green; font-weight: bold;" />
+                                    <!-- Add your confirmation message or button here -->
+                                </h:panelGroup>
+                                <h:panelGroup rendered="#{booking.status eq 0 }">
+                                    <h:outputText value=" Your Booking is Panding " style="color: red; font-weight: bold;" />
+                                    <!-- Add your confirmation message or button here -->
+                                </h:panelGroup>
+                                 <h:panelGroup rendered="#{booking.status eq 2}">
+                                    <h:outputText value=" Your Booking is Cancel" style="color: red; font-weight: bold;" />
+                                    <!-- Add your confirmation message or button here -->
+                                </h:panelGroup>
+                            </h:column>
+                            <!-- Add more columns for other booking details as needed -->
+                        </h:dataTable>
+                    </div>
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

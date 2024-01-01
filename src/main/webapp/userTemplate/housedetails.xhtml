@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" id="switcher-css" type="text/css" href="assets/switcher/css/switcher.css" media="all" />
+        <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/red.css" title="red" media="all" data-default-color="true" />
+        <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/orange.css" title="orange" media="all" />
+        <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/blue.css" title="blue" media="all" />
+        <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/pink.css" title="pink" media="all" />
+        <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/green.css" title="green" media="all" />
+        <link rel="alternate stylesheet" type="text/css" href="assets/switcher/css/purple.css" title="purple" media="all" />
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/favicon-icon/apple-touch-icon-144-precomposed.png"/>
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/favicon-icon/apple-touch-icon-114-precomposed.html"/>
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/favicon-icon/apple-touch-icon-72-precomposed.png"/>
+        <link rel="apple-touch-icon-precomposed" href="assets/images/favicon-icon/apple-touch-icon-57-precomposed.png"/>
+        <link rel="shortcut icon" href="assets/images/favicon-icon/favicon.png"/>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="userfacelet.xhtml">
+            <ui:define name="content">
+                <h:form>
+                <f:metadata>
+                    <f:viewParam name="p_id" value="#{insertPropertyBean.p_id}" />
+                    <f:event type="preRenderView" listener="#{insertPropertyBean.load()}" />
+                </f:metadata>
+
+               
+                    <section id="listing_img_slider">
+                        <div> <h:graphicImage library="images" name="#{insertPropertyBean.image1}" class="img-responsive" width="900" height="560" alt="image" /></div>
+                        <div> <h:graphicImage library="images" name="#{insertPropertyBean.image2}" class="img-responsive" width="900" height="560" alt="image" /></div>
+                        <div> <h:graphicImage library="images" name="#{insertPropertyBean.image1}" class="img-responsive" width="900" height="560" alt="image" /></div>
+                        <div> <h:graphicImage library="images" name="#{insertPropertyBean.image4}" class="img-responsive" width="900" height="560" alt="image" /></div>
+
+                        <!--          <div><img src="admin/img/vehicleimages/<?php echo htmlentities($result->Vimage5); ?>" class="img-responsive" alt="image" width="900" height="560"></div>-->
+
+                    </section>
+
+
+
+                    <!--        <h:panelGrid columns="2">
+                                <h:outputLabel for="propertyName">Property Name:</h:outputLabel>
+                                <h:outputText id="propertyName" value="#{insertPropertyBean.title}" />
+                    
+                                <h:outputLabel for="propertyDescription">Description:</h:outputLabel>
+                                <h:outputText id="propertyDescription" value="#{insertPropertyBean.type}" />
+                    
+                                 Add other output fields for property details 
+                            </h:panelGrid>-->
+                    <!--          <section class="listing-detail">
+                            <div class="container">
+                                <div class="col-md-9">
+                                   
+                                  <h2> <h:outputText id="propertyName" value="#{insertPropertyBean.title}" />, <h:outputText id="propertyDescription" value="#{insertPropertyBean.type}" /></h2>
+                                </div>
+                                <div class="col-md-3">
+                                  <div class="price_info">
+                                      <p> <h:outputText id="propertyprice" value="#{insertPropertyBean.price}" />₹</p>Per Day
+                    
+                                  </div>
+                                </div>
+                              </div>
+                                  </section>-->
+
+               
+                <section class="listing-detail">
+                    <div class="container">
+                        <div class="col-md-9">
+                            <h2> Title = #{insertPropertyBean.title}, Type = #{insertPropertyBean.type}</h2>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="price_info">
+                                <p>Price = #{insertPropertyBean.price} </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="main_features">
+                                <ul>
+                                    <li> <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        <h5>#{insertPropertyBean.listingdate}</h5>
+                                        <p>Listing Date</p>
+                                    </li>
+                                    <li> <i class="fa fa-cogs" aria-hidden="true"></i>
+                                        <h5>#{insertPropertyBean.contactno}</h5>
+                                        <p>Contact no</p>
+                                    </li>
+                                    <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                        <h5>#{insertPropertyBean.emailid}</h5>
+                                        <p>Emailid</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="listing_more_info">
+                                <div class="listing_detail_wrap">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs gray-bg" role="tablist">
+                                        <li role="presentation" class="active"><a href="#vehicle-overview" aria-controls="vehicle-overview" role="tab" data-toggle="tab">House Overview </a></li>
+<!--                                        <li role="presentation"><a href="#accessories" aria-controls="accessories" role="tab" data-toggle="tab">Accessories</a></li>-->
+                                    </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <!-- vehicle-overview -->
+                                        <div role="tabpanel" class="tab-pane active" id="vehicle-overview">
+                                            <p>#{insertPropertyBean.description}</p>
+                                        </div>
+
+                                        <!-- Accessories -->
+                                        <!--                            <div role="tabpanel" class="tab-pane" id="accessories">
+                                                                        <table>
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th colspan="2">Accessories</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>Air Conditioner</td>
+                                                                                    <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                                                                                </tr>
+                                                                                 More Accessories Rows Go Here 
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <!--Side-Bar-->
+                        <aside class="col-md-3">
+                            <div class="sidebar_widget">
+                                <div class="widget_heading">
+                                    <h5><i class="fa fa-envelope" aria-hidden="true"></i>Book Now</h5>
+                                </div>
+                                
+                                    <div class="form-group">
+                                        <h:inputText value="#{insertPropertyBean.p_id}" readonly="true"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel for="fromdate">emaild</h:outputLabel>
+                                        <h:inputText id="fromdate" class="form-control" value="#{sessionScope.User}" />
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel for="todate">date</h:outputLabel>
+                                        <h:inputText id="todate" class="form-control" value="#{insertPropertyBean.listingdate}" />
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel for="message">price</h:outputLabel>
+                                        <h:inputText id="message" class="form-control"  value="#{insertPropertyBean.price}" />
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel for="message">b_price</h:outputLabel>
+                                        <h:inputText id="price" class="form-control"  value="#{insertPropertyBean.b_price}" />
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel for="message">description</h:outputLabel>
+                                        <h:inputTextarea id="details" class="form-control" rows="4" value="#{insertPropertyBean.description}"/>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <h:commandButton value="Book Now" class="form-control" action="#{insertPropertyBean.Bookinginsert()}" />
+                                    </div>
+                                   
+                                    
+                               
+                            </div>
+                        </aside>
+                     <!--/Side-Bar-->
+                    </div>
+
+                    <div class="space-20"></div>
+                    <div class="divider"></div>
+
+
+
+                </section>
+                    </h:form>
+            </ui:define>
+
+        </ui:composition>
+    </h:body>
+</html>

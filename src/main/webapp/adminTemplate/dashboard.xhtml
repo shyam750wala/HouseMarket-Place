@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:decorate template="trytemplate.xhtml">
+            <ui:define name="content">
+        <div class="row">
+    <div class="col-md-12">
+        <h2 class="page-title">Dashboard</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+                            <div class="panel-body bk-primary text-light">
+                                <div class="stat-panel text-center">
+                                    <div class="stat-panel-number h1 "> #{registrationBean.fetchCountUsers()} </div>
+                                    <div class="stat-panel-title text-uppercase">Reg Users</div>
+                                </div>
+                            </div>
+                            <a href="registeruser.jsf" class="block-anchor panel-footer">Full Detail <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+                            <div class="panel-body bk-success text-light">
+                                <div class="stat-panel text-center">
+                                    <div class="stat-panel-number h1 "> #{registrationBean.fetchCountProperty()} </div>
+                                    <div class="stat-panel-title text-uppercase">Listed Property</div>
+                                </div>
+                            </div>
+                            <a href="manageProperty.jsf" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+                            <div class="panel-body bk-info text-light">
+                                <div class="stat-panel text-center">
+                                    <div class="stat-panel-number h1 "> #{registrationBean.fetchCountBooking()} </div>
+                                    <div class="stat-panel-title text-uppercase">Total Bookings</div>
+                                </div>
+                            </div>
+                            <a href="newbooking.jsf" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+                            <div class="panel-body bk-warning text-light">
+                                <div class="stat-panel text-center">
+                                    <div class="stat-panel-number h1 ">  #{registrationBean.fetchCountBrand()} </div>
+                                    <div class="stat-panel-title text-uppercase">Listed Brands</div>
+                                </div>
+                            </div>
+                            <a href="managerole.jsf" class="block-anchor panel-footer text-center">Full Detail &nbsp; <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ </ui:define>
+</ui:decorate>
+    </h:body>
+</html>

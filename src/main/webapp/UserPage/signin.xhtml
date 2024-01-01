@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .signin-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+
+        .signin-header {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .error {
+            color: red;
+            margin-top: 5px;
+        }
+
+        .signin-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .signin-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+    </h:head>
+    <h:body>
+        <div class="signin-container">
+        <div class="signin-header">User Sign In</div>
+        <h:form>
+            <div class="form-group">
+                <label for="email" class="form-label">Email:</label>
+                <h:inputText id="email" styleClass="form-input" value="#{signinCdiBean.emailid}" required="true" />
+                <h:message for="email" styleClass="error" />
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Password:</label>
+                <h:inputSecret id="password" styleClass="form-input" value="#{signinCdiBean.password}" required="true" />
+                <h:message for="password" styleClass="error" />
+            </div>
+
+            <div class="form-group">
+                <h:commandButton value="Sign In" styleClass="signin-button" action="#{signinCdiBean.login()}" />
+            </div>
+        </h:form>
+    </div>
+    </h:body>
+</html>

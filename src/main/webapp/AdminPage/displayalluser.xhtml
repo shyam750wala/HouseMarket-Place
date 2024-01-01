@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <style type="text/css">
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 2px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+    
+ @media screen and (max-width: 600px) {
+        th, td {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        th {
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    }
+</style>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+    <h:form>
+        <h1><h:outputText value="User List"/></h1>
+        <h:dataTable value="#{userCdiBean.getallUsers()}" var="item" border="2">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="EmailId"/>
+                </f:facet>
+                <h:outputText value="#{item.emailId}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Fname"/>
+                </f:facet>
+                <h:outputText value="#{item.fname}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Lname"/>
+                </f:facet>
+                <h:outputText value="#{item.lname}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="ContactNo"/>
+                </f:facet>
+                <h:outputText value="#{item.contactNo}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Password"/>
+                </f:facet>
+                <h:outputText value="#{item.password}"/>
+            </h:column>
+<!--            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="RoleId"/>
+                </f:facet>
+                <h:outputText value="#{item.roleId.role}"/>
+            </h:column>-->
+        </h:dataTable>
+    </h:form>
+</f:view>
+
+    </h:body>
+</html>
